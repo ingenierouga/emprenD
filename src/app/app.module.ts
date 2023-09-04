@@ -20,7 +20,7 @@ import { FooterSectionsComponent } from './shared/footer/footer-sections/footer-
 import { FooterSocialLinksComponent } from './shared/footer/footer-social-links/footer-social-links.component';
 import { SeparadorComponent } from './shared/separador/separador.component';
 import { BotonComponent } from './shared/boton/boton.component';
-import { ServicioComponent } from './inicio/servicios/servicio/servicio.component';
+import { IdeaBlogComponent } from './idea-blog/idea-blog.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +41,7 @@ import { ServicioComponent } from './inicio/servicios/servicio/servicio.componen
     FooterSocialLinksComponent,
     SeparadorComponent,
     BotonComponent,
-    ServicioComponent,
+    IdeaBlogComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],

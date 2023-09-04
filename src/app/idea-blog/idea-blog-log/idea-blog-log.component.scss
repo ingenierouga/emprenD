@@ -1,0 +1,35 @@
+@import "../../../environments/styles/colors.scss";
+
+.idea-blog-log-holder {
+  background-color: $emprend-black;
+  .idea-output-ta {
+    resize: none;
+    width: 100%;
+    min-height: 100px;
+  }
+
+  .idea-time-stamp {
+    align-self: right;
+    color: $emprend-white;
+    float: right;
+    font-weight: 700;
+    letter-spacing: 2px;
+  }
+
+  .user-icon-holder {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: $emprend-white;
+    text-align: center;
+    display: flex; /* Set the container to flex */
+    align-items: center; /* Vertically center items within the container */
+    justify-content: center;
+
+    .user-icon {
+      font-size: 5rem;
+
+      color: $emprend-red;
+    }
+  }
+}

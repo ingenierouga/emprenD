@@ -1,11 +1,11 @@
-export class Usuario {
+export class Idea {
   public createdBy: string;
-  public descripcion: string;
+  public content: string;
   public timeStamp: string;
 
-  constructor(username: string, descripcion: string) {
-    this.createdBy = username;
-    this.descripcion = descripcion;
+  constructor(usernameParam: string, contentParam: string) {
+    this.createdBy = usernameParam;
+    this.content = contentParam;
     this.timeStamp = Date();
   }
 }

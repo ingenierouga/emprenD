@@ -1,12 +1,15 @@
 @import "../../../environments/styles/colors.scss";
 
 .idea-form-holder {
-  background-color: $emprend-white;
-
   .separador {
     height: 2px;
     background-color: $emprend-red;
     display: block;
+  }
+
+  .tittle {
+    font-weight: 900;
+    font-family: "poppins-dark", sans-serif;
   }
 
   .idea-input-area {
