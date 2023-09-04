@@ -1,0 +1,48 @@
+@import "../../../environments/styles/colors.scss";
+
+.caracteristicas-holder {
+  background-color: $emprend-white;
+
+  .tittle {
+    font-weight: 900;
+    font-family: "poppins-dark", sans-serif;
+  }
+
+  .separador {
+    height: 2px;
+    background-color: $emprend-red;
+    display: block;
+  }
+
+  .caracteristica-holder-ind {
+    border: 0dvi;
+
+    font-size: 1rem;
+    letter-spacing: 1px;
+    font-family: "poppins-light", sans-serif;
+    text-align: left;
+
+    transition: background-color 0.3s ease-in-out;
+  }
+
+  .servicio-holder-ind:hover {
+    background-color: lightgray;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .icon {
+    font-size: 3rem;
+    color: $emprend-red;
+    display: block;
+  }
+
+  h3 {
+    font-size: 3rem;
+    color: $emprend-red;
+  }
+
+  p {
+    font-size: 1rem;
+    color: black;
+  }
+}

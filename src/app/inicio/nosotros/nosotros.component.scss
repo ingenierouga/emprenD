@@ -1,0 +1,18 @@
+@import "../../../environments/styles/colors.scss";
+
+.nosotros-holder {
+  background-color: $emprend-white;
+  .nosotros-banner {
+    background-image: url("/assets/images/nosotros/nosotros-background.PNG");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    min-height: 600px;
+  }
+
+  .separador {
+    height: 2px;
+    background-color: $emprend-red;
+    display: block;
+  }
+}

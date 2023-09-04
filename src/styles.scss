@@ -1,0 +1,13 @@
+/* You can add global styles to this file, and also import other style files */
+@import "/node_modules/bootstrap/scss/bootstrap.scss";
+@import "./assets/fonts/fonts.scss";
+@import "./environments/styles/colors.scss"; // Default variable overrides
+@import "/node_modules/bootstrap-icons/font/bootstrap-icons.css";
+
+.poppinsD-font {
+  font-family: "poppins-black", sans-serif;
+}
+
+.poppinsL-font {
+  font-family: "poppins-light", sans-serif;
+}
