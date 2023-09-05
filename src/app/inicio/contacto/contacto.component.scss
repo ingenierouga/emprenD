@@ -1,0 +1,60 @@
+@import "../../../environments/styles/colors.scss";
+
+.contacto-holder {
+  background-color: $emprend-white;
+
+  .tittle {
+    font-weight: 900;
+    font-family: "poppins-dark", sans-serif;
+    font-size: 1.5rem;
+  }
+
+  .separador {
+    height: 2px;
+    background-color: $emprend-red;
+    display: block;
+  }
+
+  .icon {
+    font-size: 1.5rem;
+    color: $emprend-red;
+  }
+
+  .forma-text {
+    color: $emprend-red;
+  }
+
+  .mensaje {
+    resize: none;
+    width: 60%;
+  }
+
+  .form-input {
+    border: none;
+    background-color: white;
+    width: 60%;
+  }
+
+  .ubicacion-info-holder {
+    background-color: $emprend-black;
+    justify-content: center;
+    min-width: 430px;
+
+    .widget-holder {
+      margin: 0 auto;
+      display: table;
+    }
+
+    .info-tittle {
+      color: white;
+      font-weight: 600;
+      letter-spacing: 2px;
+    }
+
+    .info-label {
+      color: white;
+      display: inline-block;
+      max-width: 300px;
+    }
+  }
+}

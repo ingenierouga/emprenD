@@ -1,4 +1,5 @@
 @import "../../../environments/styles/colors.scss";
+@import "../../../environments/styles/breakpoints.scss";
 
 .caracteristicas-holder {
   background-color: $emprend-white;
@@ -14,35 +15,33 @@
     display: block;
   }
 
-  .caracteristica-holder-ind {
-    border: 0dvi;
-
-    font-size: 1rem;
-    letter-spacing: 1px;
-    font-family: "poppins-light", sans-serif;
-    text-align: left;
-
-    transition: background-color 0.3s ease-in-out;
-  }
-
-  .servicio-holder-ind:hover {
-    background-color: lightgray;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  }
-
   .icon {
-    font-size: 3rem;
+    font-size: 1.5rem;
     color: $emprend-red;
     display: block;
+
+    @media (min-width: $medium-screen) {
+      font-size: 2rem;
+    }
+    margin-right: 20px;
   }
 
-  h3 {
-    font-size: 3rem;
+  h4 {
+    font-size: 1.5rem;
+    font-weight: 600;
     color: $emprend-red;
   }
 
   p {
     font-size: 1rem;
     color: black;
+  }
+
+  .caracteristicas-banner {
+    background-image: url("/assets/images/caracteristicas-banner2.PNG");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    min-height: 600px;
   }
 }

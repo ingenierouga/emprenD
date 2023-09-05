@@ -1,0 +1,49 @@
+@import "../../../environments/styles/colors.scss";
+
+.equipo-holder {
+  background-color: white;
+
+  .tittle {
+    font-weight: 900;
+    font-family: "poppins-dark", sans-serif;
+  }
+
+  .separador {
+    height: 2px;
+    background-color: $emprend-red;
+    display: block;
+  }
+
+  .empleado-holder {
+    background-color: $emprend-white;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+
+    .portrait-holder {
+      width: 150px;
+      height: 150px;
+      overflow: hidden;
+      border-radius: 50%;
+
+      img {
+        width: 100%;
+
+        position: relative;
+      }
+    }
+
+    .portrait-tittle {
+      font-weight: 900;
+      font-family: "poppins-dark", sans-serif;
+    }
+
+    .empleado-text {
+      font-size: smaller;
+    }
+
+    .empleado-columna {
+      margin: 0 auto;
+    }
+  }
+}
