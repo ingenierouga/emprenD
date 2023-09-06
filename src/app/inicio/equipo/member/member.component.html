@@ -1,0 +1,43 @@
+<div
+  (mouseover)="onMouseOver()"
+  (mouseout)="onMouseOut()"
+  class="empleado-holder py-3"
+  [class.hover]="hovered"
+>
+  <div class="d-flex flex-column mb-3">
+    <div class="p-2 empleado-columna">
+      <div class="portrait-holder">
+        <img [src]="member.picturePath" alt="Erlend Portrait " />
+      </div>
+    </div>
+  </div>
+  <div class="p-2 empleado-columna">
+    <div class="portrait-tittle" [class.hover]="hovered">
+      {{ member.tittle }}
+    </div>
+  </div>
+  <div class="p-2 empleado-columna">
+    <p class="empleado-text mx-2" [class.hover]="hovered">
+      {{ member.description }}
+    </p>
+  </div>
+  <div class="p-2 empleado-columna">
+    <div
+      class="row justify-content-center redes-sociales-holder px-3 gy-2"
+      [class.hover]="hovered"
+    >
+      <div class="col-3">
+        <i class="bi bi-twitter"></i>
+      </div>
+      <div class="col-3"><i class="bi bi-facebook"></i></div>
+      <div class="col-3"><i class="bi bi-linkedin"></i></div>
+      <div class="col-3"><i class="bi bi-envelope-fill"></i></div>
+      <div class="col-3"><i class="bi bi-instagram"></i></div>
+      <div class="col-3"><i class="bi bi-youtube"></i></div>
+      <div class="col-3"><i class="bi bi-whatsapp"></i></div>
+      <div class="col-3">
+        <i class="bi bi-tiktok"></i>
+      </div>
+    </div>
+  </div>
+</div>

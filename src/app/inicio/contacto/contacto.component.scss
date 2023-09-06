@@ -33,6 +33,26 @@
     border: none;
     background-color: white;
     width: 60%;
+    height: 40px;
+    max-width: 300px;
+    display: inline-block;
+  }
+
+  .contacto-button {
+    background-color: $emprend-red;
+    border: 0dvi;
+    color: $emprend-white;
+    font-weight: 900;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    font-family: "poppins-light", sans-serif;
+
+    transition: background-color 0.3s ease-in-out;
+  }
+
+  .contacto-button:hover {
+    background-color: #cc0000;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   }
 
   .ubicacion-info-holder {

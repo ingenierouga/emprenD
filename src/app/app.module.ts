@@ -21,6 +21,9 @@ import { FooterSocialLinksComponent } from './shared/footer/footer-social-links/
 import { SeparadorComponent } from './shared/separador/separador.component';
 import { BotonComponent } from './shared/boton/boton.component';
 import { IdeaBlogComponent } from './idea-blog/idea-blog.component';
+import { MemberComponent } from './inicio/equipo/member/member.component';
+import { InicioComponent } from './inicio/inicio.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +45,9 @@ import { IdeaBlogComponent } from './idea-blog/idea-blog.component';
     SeparadorComponent,
     BotonComponent,
     IdeaBlogComponent,
+    MemberComponent,
+    InicioComponent,
+    LoginComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],

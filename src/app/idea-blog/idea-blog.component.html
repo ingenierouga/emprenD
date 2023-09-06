@@ -1,4 +1,6 @@
+<app-header></app-header>
 <div class="idea-blog-holder container-fluid">
-  <app-idea-blog-form></app-idea-blog-form>
-  <app-idea-blog-log></app-idea-blog-log>
+  <app-idea-blog-form (ideaShared)="onSharedIdea($event)"></app-idea-blog-form>
+  <app-idea-blog-log [ideasDisplay]="ideas"></app-idea-blog-log>
 </div>
+<app-footer></app-footer>

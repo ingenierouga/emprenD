@@ -1,6 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-
-import { Idea } from '../idea.model';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-idea-blog-form',
@@ -8,14 +6,23 @@ import { Idea } from '../idea.model';
   styleUrls: ['./idea-blog-form.component.scss'],
 })
 export class IdeaBlogFormComponent implements OnInit {
-  ideas: Idea[] = [
-    new Idea(
-      'Test User',
-      'Mi idea es una app donde se puedan registrar nuevas ideas'
-    ),
-  ];
+  @Output() ideaShared = new EventEmitter<{
+    content: string;
+    createdBy: string;
+  }>();
+  ideaContent = '';
+  createdBy = 'test user';
 
   constructor() {}
 
   ngOnInit() {}
+
+  onShareIdea() {
+    this.ideaShared.emit({
+      content: this.ideaContent,
+      createdBy: this.createdBy,
+    });
+
+    this.ideaContent = '';
+  }
 }

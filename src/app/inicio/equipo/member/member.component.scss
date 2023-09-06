@@ -1,0 +1,59 @@
+@import "../../../../environments/styles/colors.scss";
+
+.empleado-holder {
+  background-color: $emprend-white;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.5s ease;
+  &.hover {
+    background-color: $emprend-black;
+  }
+
+  .portrait-holder {
+    width: 130px;
+    height: 130px;
+    overflow: hidden;
+    border-radius: 50%;
+
+    img {
+      width: 100%;
+
+      position: relative;
+    }
+  }
+
+  .portrait-tittle {
+    font-weight: 900;
+    font-family: "poppins-dark", sans-serif;
+    transition: color 0.5s ease;
+    &.hover {
+      color: $emprend-red;
+    }
+  }
+
+  .empleado-text {
+    font-size: smaller;
+    transition: color 0.5s ease;
+    &.hover {
+      color: $emprend-white;
+    }
+  }
+
+  .empleado-columna {
+    margin: 0 auto;
+  }
+
+  .redes-sociales-holder {
+    font-size: 1.5rem;
+    transition: color 0.5s ease;
+
+    &.hover {
+      color: $emprend-red;
+    }
+
+    i {
+      cursor: pointer;
+    }
+  }
+}

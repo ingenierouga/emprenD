@@ -1,14 +1,21 @@
-<div class="idea-blog-log-holder p-5">
+<div class="idea-blog-log-holder p-4 m-3">
   <div clss="container">
-    <div class="row justify-content-left">
+    <div class="row justify-content-left" *ngFor="let idea of ideas">
       <div class="col col-2">
         <div class="user-icon-holder">
           <i class="bi bi-person-fill user-icon p-1"></i>
         </div>
       </div>
       <div class="col col-9">
-        <textarea class="idea-output-ta">hola hola</textarea>
-        <label class="idea-time-stamp">20/2/20 Eduviges Ateaga</label>
+        <div class="d-flex flex-column mb-3">
+          <div class="p-2">
+            <textarea class="idea-output-ta">{{ idea.content }}</textarea>
+          </div>
+          <div class="p-2 idea-label-holder justify-content-end">
+            <label class="idea-label">{{ idea.timeStamp }}</label>
+            <label class="idea-label ms-2">{{ idea.createdBy }}</label>
+          </div>
+        </div>
       </div>
     </div>
   </div>

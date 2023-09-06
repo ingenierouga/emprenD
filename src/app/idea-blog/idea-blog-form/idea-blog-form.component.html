@@ -9,9 +9,14 @@
       </div>
       <div class="col col-sm-6 col-12"></div>
     </div>
-    <textarea class="idea-input-area" rows="4" cols="100"></textarea>
+    <textarea
+      class="idea-input-area"
+      rows="4"
+      cols="100"
+      [(ngModel)]="ideaContent"
+    ></textarea>
     <div class="d-flex flex-row-reverse mt-2">
-      <button class="share-button py-3 px-5">
+      <button class="share-button py-3 px-5" (click)="onShareIdea()">
         share <i class="bi bi-arrow-right"></i>
       </button>
     </div>

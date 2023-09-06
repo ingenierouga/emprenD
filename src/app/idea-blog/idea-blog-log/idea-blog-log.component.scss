@@ -1,4 +1,5 @@
 @import "../../../environments/styles/colors.scss";
+@import "../../../environments/styles/breakpoints.scss";
 
 .idea-blog-log-holder {
   background-color: $emprend-black;
@@ -8,17 +9,22 @@
     min-height: 100px;
   }
 
-  .idea-time-stamp {
+  .idea-label {
     align-self: right;
     color: $emprend-white;
-    float: right;
+
     font-weight: 700;
     letter-spacing: 2px;
+    display: inline-block;
+  }
+
+  .idea-label-holder {
+    display: flex;
   }
 
   .user-icon-holder {
-    width: 100px;
-    height: 100px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     background-color: $emprend-white;
     text-align: center;
@@ -26,9 +32,16 @@
     align-items: center; /* Vertically center items within the container */
     justify-content: center;
 
-    .user-icon {
-      font-size: 5rem;
+    @media (min-width: $medium-screen) {
+      width: 100px;
+      height: 100px;
+    }
 
+    .user-icon {
+      font-size: 2.5rem;
+      @media (min-width: $medium-screen) {
+        font-size: 5rem;
+      }
       color: $emprend-red;
     }
   }

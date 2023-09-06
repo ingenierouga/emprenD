@@ -1,4 +1,4 @@
-<div class="contacto-holder p-5">
+<div class="contacto-holder p-5" id="contacto">
   <div clss="container">
     <div class="row justify-content-left">
       <div class="col col-sm-6 col-12">
@@ -20,29 +20,49 @@
           <div class="p-2">
             <div class="contacto-forma-holder">
               <div class="d-flex flex-column mb-3">
-                <div class="p-2">
-                  <i class="bi bi-person-fill icon me-2"></i>
-                  <input class="form-input" placeholder="Nombre" />
-                </div>
-                <div class="p-2">
-                  <i class="bi bi-envelope icon me-2"></i>
-                  <input class="form-input" placeholder="Correo Electronico" />
-                </div>
-                <div class="p-2">
-                  <i class="bi bi-telephone-fill icon me-2"></i>
-                  <input class="form-input" placeholder="Telefono" />
-                </div>
-                <div class="p-2">
-                  <i class="bi bi-calendar3 icon me-2"></i>
-                  <input class="form-input" placeholder="Elegir Fecha" />
-                </div>
-                <div class="p-2">
-                  <i class="bi bi-wechat icon me-2 align-top"></i>
-                  <textarea
-                    class="form-input mensaje"
-                    placeholder="Mensaje"
-                  ></textarea>
-                </div>
+                <form>
+                  <div class="form-group">
+                    <div class="p-2">
+                      <i class="bi bi-person-fill icon me-2"></i>
+                      <input class="form-input" placeholder="  Nombre" />
+                    </div>
+                    <div class="p-2">
+                      <i class="bi bi-envelope icon me-2"></i>
+                      <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        class="form-input form-control"
+                        placeholder="  Correo Electronico"
+                        required
+                      />
+                    </div>
+                    <div class="p-2">
+                      <i class="bi bi-telephone-fill icon me-2"></i>
+                      <input class="form-input" placeholder="  Telefono" />
+                    </div>
+                    <div class="p-2">
+                      <i class="bi bi-calendar3 icon me-2"></i>
+                      <input class="form-input" placeholder="  Elegir Fecha" />
+                    </div>
+                    <div class="p-2">
+                      <i class="bi bi-wechat icon me-2 align-top"></i>
+                      <textarea
+                        class="form-input mensaje"
+                        placeholder="  Mensaje"
+                      ></textarea>
+                    </div>
+
+                    <div class="p-2 ms-5 justify-content-end">
+                      <button
+                        type="submit"
+                        class="contacto-button p-2 px-5 mt-3"
+                      >
+                        Enviar <i class="bi bi-arrow-right"></i>
+                      </button>
+                    </div>
+                  </div>
+                </form>
               </div>
             </div>
           </div>

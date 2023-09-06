@@ -6,6 +6,13 @@ export class Idea {
   constructor(usernameParam: string, contentParam: string) {
     this.createdBy = usernameParam;
     this.content = contentParam;
-    this.timeStamp = Date();
+
+    const currentDate = new Date();
+
+    const day = currentDate.getDate();
+    const month = currentDate.getMonth() + 1;
+    const year = currentDate.getFullYear();
+
+    this.timeStamp = `${day}/${month}/${year}`;
   }
 }
