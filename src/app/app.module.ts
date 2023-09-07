@@ -23,6 +23,7 @@ import { IdeaBlogComponent } from './idea-blog/idea-blog.component';
 import { MemberComponent } from './inicio/equipo/member/member.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { LoginComponent } from './login/login.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,7 @@ import { LoginComponent } from './login/login.component';
     InicioComponent,
     LoginComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, BrowserAnimationsModule],
   providers: [],
   bootstrap: [AppComponent],
 })

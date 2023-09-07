@@ -7,7 +7,5 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./login-form.component.scss'],
 })
 export class LoginFormComponent {
-  onSubmit(form: NgForm) {
-    console.log(form);
-  }
+  onSubmit(form: NgForm) {}
 }
