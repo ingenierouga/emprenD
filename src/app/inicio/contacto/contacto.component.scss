@@ -1,5 +1,5 @@
 @import "../../../environments/styles/colors.scss";
-
+@import "../../../environments/styles/breakpoints.scss";
 .contacto-holder {
   background-color: $emprend-white;
 
@@ -27,6 +27,14 @@
   .mensaje {
     resize: none;
     width: 60%;
+  }
+
+  .form-holder {
+    text-align: center;
+
+    @media (min-width: $large-screen) {
+      text-align: left;
+    }
   }
 
   .form-input {

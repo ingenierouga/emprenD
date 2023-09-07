@@ -1,4 +1,4 @@
-<div class="idea-blog-log-holder p-4 m-3">
+<div class="idea-blog-log-holder p-4 pb-5">
   <div clss="container">
     <div class="row justify-content-left" *ngFor="let idea of ideas">
       <div class="col col-2">
@@ -9,7 +9,12 @@
       <div class="col col-9">
         <div class="d-flex flex-column mb-3">
           <div class="p-2">
-            <textarea class="idea-output-ta">{{ idea.content }}</textarea>
+            <textarea
+              class="idea-output-ta"
+              aria-label="ideas-blog post content"
+              readonly
+              >{{ idea.content }}</textarea
+            >
           </div>
           <div class="p-2 idea-label-holder justify-content-end">
             <label class="idea-label">{{ idea.timeStamp }}</label>

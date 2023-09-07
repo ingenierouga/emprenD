@@ -19,7 +19,6 @@ import { LogoholderComponent } from './shared/footer/logoholder/logoholder.compo
 import { FooterSectionsComponent } from './shared/footer/footer-sections/footer-sections.component';
 import { FooterSocialLinksComponent } from './shared/footer/footer-social-links/footer-social-links.component';
 import { SeparadorComponent } from './shared/separador/separador.component';
-import { BotonComponent } from './shared/boton/boton.component';
 import { IdeaBlogComponent } from './idea-blog/idea-blog.component';
 import { MemberComponent } from './inicio/equipo/member/member.component';
 import { InicioComponent } from './inicio/inicio.component';
@@ -43,7 +42,6 @@ import { LoginComponent } from './login/login.component';
     FooterSectionsComponent,
     FooterSocialLinksComponent,
     SeparadorComponent,
-    BotonComponent,
     IdeaBlogComponent,
     MemberComponent,
     InicioComponent,

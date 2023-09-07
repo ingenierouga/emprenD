@@ -1,7 +1,15 @@
+@import "../../../../environments/styles/colors.scss";
+
 .social-media-icons-bar {
   background-color: #ea4242;
 
   img {
     cursor: pointer;
   }
+}
+
+.separador {
+  height: 2px;
+  background-color: $emprend-red;
+  display: block;
 }

@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BotonComponent } from './boton.component';
+import { SeparadorComponent } from './separador.component';
 
-describe('BotonComponent', () => {
-  let component: BotonComponent;
-  let fixture: ComponentFixture<BotonComponent>;
+describe('SeparadorComponent', () => {
+  let component: SeparadorComponent;
+  let fixture: ComponentFixture<SeparadorComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [BotonComponent]
+      declarations: [SeparadorComponent]
     });
-    fixture = TestBed.createComponent(BotonComponent);
+    fixture = TestBed.createComponent(SeparadorComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

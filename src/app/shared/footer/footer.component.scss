@@ -5,4 +5,10 @@
   color: $emprend-white;
 
   bottom: 0;
+
+  .separador {
+    height: 2px;
+    background-color: $emprend-red;
+    display: block;
+  }
 }

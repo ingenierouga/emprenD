@@ -1,7 +1,7 @@
 <div class="container-fluid login-holder text-center p-5">
   <div class="row justify-content-center">
     <div class="col-8 col-sm-6 col-md-4">
-      <div class="d-flex flex-column mb-3 p-3">
+      <div class="d-flex flex-column mb-3 p-3 form-holder">
         <div class="">
           <div class="brand">
             <img
@@ -14,19 +14,67 @@
             </div>
           </div>
         </div>
-        <div class="login-label mt-2">Usuario</div>
-        <div>
-          <input class="login-input" />
-        </div>
-        <div class="login-label mt-2">Contraseña</div>
-        <div>
-          <input class="login-input" />
-        </div>
-        <div class="login-button mt-3 justify-content-end">
-          <button class="button py-3 px-5">
-            Enviar <i class="bi bi-arrow-right"></i>
-          </button>
-        </div>
+
+        <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+          <label for="username" class="form-label login-label mt-2"
+            >Usuario</label
+          >
+
+          <div>
+            <input
+              type="email"
+              class="form-control login-input"
+              id="username"
+              aria-describedby="usernameHelp"
+              ngModel
+              name="username"
+              required
+              email
+              #email="ngModel"
+            />
+            <div
+              id="usernameHelp"
+              class="form-text login-label login-help mt-2 p-1"
+              *ngIf="email.invalid && email.dirty"
+            >
+              Tu nombre de usuario es el correo que usaste en tu cuenta
+            </div>
+          </div>
+
+          <label for="login-password-input" class="form-label login-label mt-2"
+            >Contraseña</label
+          >
+
+          <div>
+            <input
+              type="password"
+              class="form-control login-input"
+              id="login-password-input"
+              ngModel
+              name="password"
+              required
+              password
+              #password="ngModel"
+            />
+            <div
+              id="passwordHelp"
+              class="form-text login-label login-help"
+              *ngIf="password.invalid && password.dirty"
+            >
+              El Password no puede tener mas de 50 characteres
+            </div>
+          </div>
+          <div class="login-button mt-4 justify-content-end">
+            <button
+              class="button py-3 px-5"
+              [class.enabled]="f.valid"
+              type="submit"
+              [disabled]="!f.valid"
+            >
+              Enviar <i class="bi bi-arrow-right"></i>
+            </button>
+          </div>
+        </form>
       </div>
     </div>
   </div>
