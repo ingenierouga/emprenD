@@ -20,8 +20,8 @@
               <div class="d-flex flex-column mb-3">
                 <form
                   class="form-floating form-holder"
-                  (ngSubmit)="onSubmit(f)"
-                  #f="ngForm"
+                  (ngSubmit)="onSubmit(contactoForm)"
+                  #contactoForm="ngForm"
                 >
                   <div class="form-group">
                     <div class="p-2">
@@ -40,9 +40,23 @@
                         id="email"
                         name="email"
                         class="form-input form-control"
-                        placeholder="  Correo Electronico"
+                        placeholder="Correo Electronico"
+                        aria-describedby="CorreoElectronico"
                         required
+                        ngModel
+                        email
+                        #email="ngModel"
                       />
+                    </div>
+                    <div class="ps-5">
+                      <div
+                        id="emailHelp"
+                        class="form-input form-control contact-help"
+                        *ngIf="email.invalid && email.dirty"
+                      >
+                        Tu nombre de usuario es el correo que usaste en tu
+                        cuenta
+                      </div>
                     </div>
                     <div class="p-2">
                       <i class="bi bi-telephone-fill icon me-2"></i>
@@ -50,11 +64,9 @@
                     </div>
                     <div class="p-2 form-group">
                       <i class="bi bi-calendar3 icon me-2"></i>
-                      <input
-                        class="form-input form-control datepicker"
-                        id="datepicker"
-                      />
+                      <app-datepicker></app-datepicker>>
                     </div>
+
                     <div class="p-2">
                       <i class="bi bi-wechat icon me-2 align-top"></i>
                       <textarea
@@ -67,6 +79,9 @@
                       <button
                         type="submit"
                         class="contacto-button p-2 px-5 mt-3"
+                        [class.enabled]="contactoForm.valid"
+                        type="submit"
+                        [disabled]="!contactoForm.valid"
                       >
                         Enviar <i class="bi bi-arrow-right"></i>
                       </button>

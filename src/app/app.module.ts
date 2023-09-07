@@ -24,6 +24,11 @@ import { MemberComponent } from './inicio/equipo/member/member.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { LoginComponent } from './login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { DatepickerComponent } from './shared/datepicker/datepicker.component';
 
 @NgModule({
   declarations: [
@@ -47,8 +52,18 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MemberComponent,
     InicioComponent,
     LoginComponent,
+    DatepickerComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, BrowserAnimationsModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    BrowserAnimationsModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatFormFieldModule,
+    MatInputModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

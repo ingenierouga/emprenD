@@ -46,8 +46,16 @@
     display: inline-block;
   }
 
+  .contact-help {
+    background-color: #e8e8e8;
+    color: $emprend-red;
+    font-size: 0.87em;
+    height: 50px;
+  }
+
   .contacto-button {
     background-color: $emprend-red;
+    opacity: 0.6;
     border: 0dvi;
     color: $emprend-white;
     font-weight: 900;
@@ -56,11 +64,16 @@
     font-family: "poppins-light", sans-serif;
 
     transition: background-color 0.3s ease-in-out;
-  }
+    &.enabled {
+      opacity: 1;
+    }
 
-  .contacto-button:hover {
-    background-color: #cc0000;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    &.enabled {
+      &:hover {
+        background-color: #cc0000;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+      }
+    }
   }
 
   .ubicacion-info-holder {
@@ -83,6 +96,20 @@
       color: white;
       display: inline-block;
       max-width: 300px;
+    }
+  }
+
+  .contacto-help {
+    font-size: 0.8rem;
+    background-color: #2a2a2b;
+    border-radius: 5px;
+    border-color: #bbbcbf;
+    border-width: 5px;
+  }
+
+  input.ng-invalid {
+    &.ng-dirty {
+      border: 1px solid red;
     }
   }
 }

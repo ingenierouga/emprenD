@@ -1,0 +1,10 @@
+<mat-form-field class="cust-dp">
+  <input
+    matInput
+    [matDatepicker]="datepicker"
+    [min]="minDate"
+    placeholder="Select a date"
+  />
+  <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
+  <mat-datepicker #datepicker></mat-datepicker>
+</mat-form-field>

@@ -37,7 +37,7 @@
               class="form-text login-label login-help mt-2 p-1"
               *ngIf="email.invalid && email.dirty"
             >
-              Tu nombre de usuario es el correo que usaste en tu cuenta
+              El correo que escribiste no es valido
             </div>
           </div>
 
@@ -56,13 +56,13 @@
               password
               #password="ngModel"
             />
-            <div
+            <!--   <div
               id="passwordHelp"
               class="form-text login-label login-help"
               *ngIf="password.invalid && password.dirty"
             >
               El Password no puede tener mas de 50 characteres
-            </div>
+            </div> -->
           </div>
           <div class="login-button mt-4 justify-content-end">
             <button
