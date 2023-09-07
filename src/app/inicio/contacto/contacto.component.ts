@@ -8,7 +8,15 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./contacto.component.scss'],
 })
 export class ContactoComponent {
+  form: FormGroup;
+
   onSubmit(form: NgForm) {
     console.log(form);
+  }
+
+  constructor(private fb: FormBuilder) {
+    this.form = this.fb.group({
+      inputField: ['', [Validators.minLength(2), Validators.maxLength(50)]],
+    });
   }
 }
