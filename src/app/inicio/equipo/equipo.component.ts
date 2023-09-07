@@ -10,7 +10,7 @@ import { Member } from './member.model';
 export class EquipoComponent implements OnInit {
   members: Member[] = [
     new Member(
-      '../../../assets/images/Erlend.PNG',
+      '../../../assets/images/Erlend.jpg',
       'Ernesto Escucha',
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
       'redes'

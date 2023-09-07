@@ -15,17 +15,11 @@ export class MemberComponent implements OnInit {
   constructor() {}
 
   onMouseOver() {
-    // Code to execute when the mouse enters the element
-    console.log('Mouse over the element');
     this.hovered = true;
-    // You can change styles or perform other actions here
   }
 
   onMouseOut() {
-    // Code to execute when the mouse leaves the element
-    console.log('Mouse out of the element');
     this.hovered = false;
-    // You can reset styles or perform other actions here
   }
 
   ngOnInit(): void {}
