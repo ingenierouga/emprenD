@@ -79,11 +79,14 @@
   .ubicacion-info-holder {
     background-color: $emprend-black;
     justify-content: center;
-    min-width: 430px;
+    //min-width: 430px;
 
     .widget-holder {
       margin: 0 auto;
-      display: table;
+      display: none;
+      @media (min-width: $small-screen) {
+        display: table;
+      }
     }
 
     .info-tittle {
