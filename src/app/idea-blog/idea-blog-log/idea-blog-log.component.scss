@@ -1,48 +1,49 @@
 @import "../../../environments/styles/colors.scss";
 @import "../../../environments/styles/breakpoints.scss";
 
-.idea-blog-log-holder {
+.black-back {
   background-color: $emprend-black;
-  .idea-output-ta {
-    resize: none;
-    width: 100%;
-    min-height: 100px;
+}
+
+.idea-output-ta {
+  resize: none;
+  width: 100%;
+  min-height: 100px;
+}
+
+.idea-label {
+  align-self: right;
+  color: $emprend-white;
+
+  font-weight: 700;
+  letter-spacing: 2px;
+  display: inline-block;
+}
+
+.idea-label-holder {
+  display: flex;
+}
+
+.user-icon-holder {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: $emprend-white;
+  text-align: center;
+  display: flex; /* Set the container to flex */
+  align-items: center; /* Vertically center items within the container */
+  justify-content: center;
+
+  @media (min-width: $medium-screen) {
+    width: 100px;
+    height: 100px;
   }
 
-  .idea-label {
-    align-self: right;
-    color: $emprend-white;
-
-    font-weight: 700;
-    letter-spacing: 2px;
-    display: inline-block;
-  }
-
-  .idea-label-holder {
-    display: flex;
-  }
-
-  .user-icon-holder {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background-color: $emprend-white;
-    text-align: center;
-    display: flex; /* Set the container to flex */
-    align-items: center; /* Vertically center items within the container */
-    justify-content: center;
-
+  .user-icon {
+    font-size: 2.5rem;
     @media (min-width: $medium-screen) {
-      width: 100px;
-      height: 100px;
+      font-size: 5rem;
     }
-
-    .user-icon {
-      font-size: 2.5rem;
-      @media (min-width: $medium-screen) {
-        font-size: 5rem;
-      }
-      color: $emprend-red;
-    }
+    color: $emprend-red;
   }
 }

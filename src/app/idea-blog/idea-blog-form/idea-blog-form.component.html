@@ -1,24 +1,43 @@
 <div class="idea-form-holder p-5">
   <div clss="container">
-    <div class="row justify-content-left">
-      <div class="col col-sm-6 col-12">
-        <h2 class="tittle">COMPARTE TU IDEA</h2>
-        <div class="row justify-content-left">
-          <div class="col col-sm-12 separador mt-2 mb-4"></div>
+    <form [formGroup]="ideaForm" (ngSubmit)="onSubmit()">
+      <div class="row justify-content-left">
+        <div class="col col-sm-6 col-12">
+          <h2 class="tittle">COMPARTE TU IDEA</h2>
+          <div class="row justify-content-left">
+            <div class="col col-sm-12 separador mt-2 mb-4"></div>
+          </div>
         </div>
+        <div class="col col-sm-6 col-12"></div>
       </div>
-      <div class="col col-sm-6 col-12"></div>
-    </div>
-    <textarea
-      class="idea-input-area"
-      rows="4"
-      cols="100"
-      [(ngModel)]="ideaContent"
-    ></textarea>
-    <div class="d-flex flex-row-reverse mt-2">
-      <button class="share-button py-3 px-5" (click)="onShareIdea()">
-        compartir <i class="bi bi-arrow-right"></i>
-      </button>
-    </div>
+      <textarea
+        class="idea-input-area"
+        rows="4"
+        cols="100"
+        formControlName="idea"
+      ></textarea>
+      <div
+        *ngIf="
+          (ideaForm.get('idea')?.hasError('required') ||
+            ideaForm.get('idea')?.hasError('maxlength')) &&
+          ideaForm.get('idea')?.touched
+        "
+        id="nombreHelp"
+        class="form-input form-control idea-help"
+      >
+        La idea debe tener de 1 a 500 characteres
+      </div>
+      <div class="d-flex flex-row-reverse mt-2">
+        <button
+          class="share-button py-3 px-5"
+          type="submit"
+          [class.enabled]="ideaForm.valid"
+          type="submit"
+          [disabled]="!ideaForm.valid"
+        >
+          compartir <i class="bi bi-arrow-right"></i>
+        </button>
+      </div>
+    </form>
   </div>
 </div>

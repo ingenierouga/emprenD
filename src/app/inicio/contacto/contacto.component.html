@@ -20,8 +20,8 @@
               <div class="d-flex flex-column mb-3">
                 <form
                   class="form-floating form-holder"
-                  (ngSubmit)="onSubmit(contactoForm)"
-                  #contactoForm="ngForm"
+                  [formGroup]="contactoForm"
+                  (ngSubmit)="onSubmit()"
                 >
                   <div class="form-group">
                     <div class="p-2">
@@ -30,8 +30,21 @@
                       <input
                         class="form-input form-control"
                         id="nombreContacto"
-                        placeholder="Lalo Landa"
+                        placeholder="  Nombre"
+                        formControlName="nombre"
                       />
+                    </div>
+                    <div class="ps-5 pb-1">
+                      <div
+                        *ngIf="
+                          contactoForm.get('nombre')?.hasError('required') &&
+                          contactoForm.get('nombre')?.touched
+                        "
+                        id="nombreHelp"
+                        class="form-input form-control contact-help"
+                      >
+                        Favor de registrar tu nombre
+                      </div>
                     </div>
                     <div class="p-2">
                       <i class="bi bi-envelope icon me-2"></i>
@@ -40,31 +53,59 @@
                         id="email"
                         name="email"
                         class="form-input form-control"
-                        placeholder="Correo Electronico"
+                        placeholder="  Correo Electronico"
                         aria-describedby="CorreoElectronico"
-                        required
-                        ngModel
-                        email
-                        #email="ngModel"
+                        formControlName="email"
                       />
                     </div>
                     <div class="ps-5">
                       <div
+                        *ngIf="
+                          (contactoForm.get('email')?.hasError('required') ||
+                            contactoForm.get('email')?.hasError('email')) &&
+                          contactoForm.get('email')?.touched
+                        "
                         id="emailHelp"
                         class="form-input form-control contact-help"
-                        *ngIf="email.invalid && email.dirty"
                       >
-                        Tu nombre de usuario es el correo que usaste en tu
-                        cuenta
+                        El correo no es valido
                       </div>
                     </div>
                     <div class="p-2">
                       <i class="bi bi-telephone-fill icon me-2"></i>
-                      <input class="form-input" placeholder="  Telefono" />
+                      <input
+                        type="text"
+                        class="form-input"
+                        placeholder="  Telefono"
+                        formControlName="telefono"
+                      />
+                    </div>
+                    <div class="ps-5">
+                      <div
+                        *ngIf="
+                          (contactoForm.get('telefono')?.hasError('required') ||
+                            contactoForm
+                              .get('telefono')
+                              ?.hasError('pattern')) &&
+                          contactoForm.get('telefono')?.touched
+                        "
+                        id="emailHelp"
+                        class="form-input form-control contact-help"
+                      >
+                        Solo de 8 a 10 numeros permitidos
+                      </div>
                     </div>
                     <div class="p-2 form-group">
                       <i class="bi bi-calendar3 icon me-2"></i>
-                      <app-datepicker></app-datepicker>>
+                      <app-datepicker></app-datepicker>
+                    </div>
+                    <div class="ps-5 pb-1">
+                      <!-- <div
+                        id="dateHelp"
+                        class="form-input form-control contact-help"
+                      >
+                        Fecha no valida
+                      </div> -->
                     </div>
 
                     <div class="p-2">
@@ -72,13 +113,29 @@
                       <textarea
                         class="form-input mensaje"
                         placeholder="  Mensaje"
+                        formControlName="mensaje"
                       ></textarea>
+                    </div>
+                    <div class="ps-5">
+                      <div
+                        *ngIf="
+                          (contactoForm.get('mensaje')?.hasError('required') ||
+                            contactoForm
+                              .get('mensaje')
+                              ?.hasError('maxlength')) &&
+                          contactoForm.get('mensaje')?.touched
+                        "
+                        id="emailHelp"
+                        class="form-input form-control contact-help"
+                      >
+                        Mensaje requerido - Max 250
+                      </div>
                     </div>
 
                     <div class="p-2 ms-5 justify-content-end">
                       <button
                         type="submit"
-                        class="contacto-button p-2 px-5 mt-3"
+                        class="contacto-button p-2 px-5 mt-3 ms-5"
                         [class.enabled]="contactoForm.valid"
                         type="submit"
                         [disabled]="!contactoForm.valid"
