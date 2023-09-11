@@ -34,7 +34,7 @@ This page is using multiple Angular components along with bootstrap to simulate 
   name - required.
   emai - required and email format.
   telefono - required and only numbers and min 8 max 10 numbers.
-  fecha - not validated yet, since this field was implemented using the Angular Material library the only validation/functionality is that it wont allow you to input a date before today since it is meant to be used for future appointments.
+  fecha - a Date is required in order to be able to send the contact info form.
   mensaje - required and not longer than 250 characters.
   button - the button will not be enabled, the hover wont work and the color will fade when the form is not valid, once all the fields are valid the button will light up and you'll be able to click it
 
@@ -54,6 +54,19 @@ This is a simple form which saves an idea (validated - required, max 500 charact
 The button will follow the behavior as the button on the "Contacto" form and wont be enabled unless the idea is valid.
 Also the header used here is different, this one does not have the navigation links and will check the service for the current logged used and show his username.
 Here Reactive Driven Validation was used.
+
+## Services
+
+The project implements a couple of services for different uses.
+
+- Modal Service: Service used to call openNotificationModal(tittle, message), the tittle will be added as the tittle to the modal and the message will be showed as the body of the modal, this modal can only be close, the is no implementation of a modal for confirmation.
+- Logged Service: Service used to manage the connection to DB to sign up or register users through the login page.
+- Ideas Service: Service that handles the connections to the APIs that connect to the DB to save the Ideas information.
+- Contacto Service: Service that handles the connections to the APIs that connect to the DB to save the contact information.
+
+## Database
+
+The database is managed with firebase, currently it is on test mode so any call will be saved, once the authentication module is finished it will be changed so only logged in users will be able to see and use the blog page, the contact information will remain open since that is meant to be used by any user.
 
 ## Running unit tests
 
