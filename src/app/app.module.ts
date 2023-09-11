@@ -28,10 +28,11 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { DatepickerComponent } from './shared/datepicker/datepicker.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HeaderLoggedComponent } from './shared/header-logged/header-logged.component';
 import { HttpClientModule } from '@angular/common/http';
+import { LoggedService } from './logged.service';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,6 @@ import { HttpClientModule } from '@angular/common/http';
     MemberComponent,
     InicioComponent,
     LoginComponent,
-    DatepickerComponent,
     HeaderLoggedComponent,
   ],
   imports: [
@@ -67,10 +67,11 @@ import { HttpClientModule } from '@angular/common/http';
     MatNativeDateModule,
     MatFormFieldModule,
     MatInputModule,
+    MatDialogModule,
     ReactiveFormsModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [LoggedService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { IdeaBlogFormComponent } from './idea-blog-form.component';
+import { LoggedService } from 'src/app/logged.service';
 
 describe('IdeaBlogFormComponent', () => {
   let component: IdeaBlogFormComponent;
@@ -8,7 +9,7 @@ describe('IdeaBlogFormComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [IdeaBlogFormComponent]
+      declarations: [IdeaBlogFormComponent],
     });
     fixture = TestBed.createComponent(IdeaBlogFormComponent);
     component = fixture.componentInstance;
@@ -17,5 +18,11 @@ describe('IdeaBlogFormComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should display user from logged service', () => {
+    let loggedService = fixture.debugElement.injector.get(LoggedService);
+    fixture.detectChanges();
+    expect(loggedService.userLogged).toEqual(component.usuario);
   });
 });

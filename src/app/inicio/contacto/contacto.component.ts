@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl, NgForm } from '@angular/forms';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ContactoService } from '../../contacto.service';
+import { ModalService } from '../../modal.service';
 
 @Component({
   selector: 'app-contacto',
@@ -22,13 +23,27 @@ export class ContactoComponent {
         telefono: this.contactoForm.value['telefono'],
       };
 
-      this.contactoServicio.guardarContacto(contactoMandar).subscribe();
+      this.contactoServicio.guardarContacto(contactoMandar).subscribe(
+        (responseData) => {
+          this.modalService.openNotificationModal(
+            'Exito',
+            'Tu informacion fue guardada correctamente, nosotros nos pondremos en contacto contigo muy pronto'
+          );
+        },
+        (error) => {
+          this.modalService.openNotificationModal(
+            'Error',
+            'Ocurrio un error al intentar guardar tu informacion: ' + error
+          );
+        }
+      );
     }
   }
 
   constructor(
     private fb: FormBuilder,
-    private contactoServicio: ContactoService
+    private contactoServicio: ContactoService,
+    private modalService: ModalService
   ) {
     this.contactoForm = this.fb.group({
       nombre: new FormControl('', Validators.required),

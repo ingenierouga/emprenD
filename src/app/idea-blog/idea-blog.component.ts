@@ -3,6 +3,7 @@ import { Idea } from './idea.model';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { IdeasService } from '../ideas.service';
+import { ModalService } from '../modal.service';
 
 @Component({
   selector: 'app-idea-blog',
@@ -18,7 +19,11 @@ export class IdeaBlogComponent implements OnInit {
     ),  */
   ];
 
-  constructor(private http: HttpClient, private ideasService: IdeasService) {}
+  constructor(
+    private http: HttpClient,
+    private ideasService: IdeasService,
+    private modalService: ModalService
+  ) {}
 
   ngOnInit() {
     this.fetchIdeas();
@@ -26,11 +31,23 @@ export class IdeaBlogComponent implements OnInit {
 
   onSharedIdea(ideaData: { content: string; createdBy: string }) {
     //let ideaToSend = new Idea(ideaData.createdBy, ideaData.content);
-    this.ideasService.guardarIdea(ideaData).subscribe((reponseData) => {
-      console.log(reponseData);
-      //una vez que se guardo la nueva idea se hace request del log de ideas para actualizar las ideas en el Blog-Log
-      this.fetchIdeas();
-    });
+    this.ideasService.guardarIdea(ideaData).subscribe(
+      (reponseData) => {
+        console.log(reponseData);
+        //una vez que se guardo la nueva idea se hace request del log de ideas para actualizar las ideas en el Blog-Log
+        this.modalService.openNotificationModal(
+          'Exito',
+          'Tu idea fue guardada correctamente'
+        );
+        this.fetchIdeas();
+      },
+      (error) => {
+        this.modalService.openNotificationModal(
+          'Error',
+          'Ocurrio un error al intentar guardar tu idea: ' + error
+        );
+      }
+    );
   }
 
   private fetchIdeas() {

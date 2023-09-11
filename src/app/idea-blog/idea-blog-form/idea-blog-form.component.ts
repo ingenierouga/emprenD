@@ -7,7 +7,7 @@ import { LoggedService } from '../../logged.service';
   selector: 'app-idea-blog-form',
   templateUrl: './idea-blog-form.component.html',
   styleUrls: ['./idea-blog-form.component.scss'],
-  providers: [LoggedService],
+  providers: [],
 })
 export class IdeaBlogFormComponent implements OnInit {
   ideaForm: FormGroup;

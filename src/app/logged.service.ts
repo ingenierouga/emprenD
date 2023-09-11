@@ -1,6 +1,4 @@
 export class LoggedService {
-  usuariosPermitidos = {};
-
   logged = false;
   userLogged = 'anonimo';
 
