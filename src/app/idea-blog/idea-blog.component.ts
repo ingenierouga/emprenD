@@ -1,23 +1,43 @@
 import { Component, OnInit } from '@angular/core';
 import { Idea } from './idea.model';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { map } from 'rxjs/operators';
+import { IdeasService } from '../ideas.service';
+
 @Component({
   selector: 'app-idea-blog',
   templateUrl: './idea-blog.component.html',
   styleUrls: ['./idea-blog.component.scss'],
 })
 export class IdeaBlogComponent implements OnInit {
-  ideas: Idea[] = [
+  isFetchingIdeas = false;
+  ideasStash: Idea[] = [
     /*   new Idea(
       'Test User',
       'Mi idea es una app donde se puedan registrar nuevas ideas'
-    ), */
+    ),  */
   ];
 
-  constructor() {}
+  constructor(private http: HttpClient, private ideasService: IdeasService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.fetchIdeas();
+  }
 
   onSharedIdea(ideaData: { content: string; createdBy: string }) {
-    this.ideas.push(new Idea(ideaData.createdBy, ideaData.content));
+    //let ideaToSend = new Idea(ideaData.createdBy, ideaData.content);
+    this.ideasService.guardarIdea(ideaData).subscribe((reponseData) => {
+      console.log(reponseData);
+      //una vez que se guardo la nueva idea se hace request del log de ideas para actualizar las ideas en el Blog-Log
+      this.fetchIdeas();
+    });
+  }
+
+  private fetchIdeas() {
+    this.isFetchingIdeas = true;
+
+    this.ideasService.obtenerIdeas().subscribe((ideas) => {
+      this.ideasStash = ideas;
+    });
   }
 }

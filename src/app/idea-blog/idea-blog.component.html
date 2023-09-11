@@ -1,6 +1,9 @@
 <app-header-logged></app-header-logged>
 <div class="idea-blog-holder container-fluid pb-2">
   <app-idea-blog-form (ideaShared)="onSharedIdea($event)"></app-idea-blog-form>
-  <app-idea-blog-log [ideasDisplay]="ideas"></app-idea-blog-log>
+  <app-idea-blog-log
+    [ideasDisplay]="ideasStash"
+    [Loading]="isFetchingIdeas"
+  ></app-idea-blog-log>
 </div>
 <app-footer></app-footer>

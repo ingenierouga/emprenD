@@ -97,7 +97,33 @@
                     </div>
                     <div class="p-2 form-group">
                       <i class="bi bi-calendar3 icon me-2"></i>
-                      <app-datepicker></app-datepicker>
+                      <!--  <input
+                        type="date"
+                        id="start"
+                        name="trip-start"
+                        value="2018-07-22"
+                        min="2018-01-01"
+                        max="2018-12-31"
+                      /> -->
+                      <mat-form-field>
+                        <mat-label>Fecha Cita</mat-label>
+                        <input
+                          matInput
+                          [matDatepicker]="picker"
+                          formControlName="fecha"
+                        />
+                        <mat-datepicker-toggle
+                          matSuffix
+                          [for]="picker"
+                        ></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                        <mat-error
+                          *ngIf="
+                            contactoForm.get('fecha')?.hasError('required')
+                          "
+                          >La Fecha es requerida</mat-error
+                        >
+                      </mat-form-field>
                     </div>
                     <div class="ps-5 pb-1">
                       <!-- <div

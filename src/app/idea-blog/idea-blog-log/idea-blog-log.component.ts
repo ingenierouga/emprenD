@@ -8,6 +8,7 @@ import { Idea } from '../idea.model';
 })
 export class IdeaBlogLogComponent implements OnInit {
   @Input('ideasDisplay') ideas: Idea[] = [];
+  @Input('Loading') isLoading: boolean = false;
 
   constructor() {}
 

@@ -31,6 +31,7 @@ import { MatInputModule } from '@angular/material/input';
 import { DatepickerComponent } from './shared/datepicker/datepicker.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HeaderLoggedComponent } from './shared/header-logged/header-logged.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -67,6 +68,7 @@ import { HeaderLoggedComponent } from './shared/header-logged/header-logged.comp
     MatFormFieldModule,
     MatInputModule,
     ReactiveFormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

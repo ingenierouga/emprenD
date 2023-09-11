@@ -15,6 +15,7 @@ export class IdeaBlogFormComponent implements OnInit {
 
   onSubmit() {
     console.log(this.ideaForm);
+
     this.ideaShared.emit({
       content: this.ideaForm.value.idea,
       createdBy: this.usuario,

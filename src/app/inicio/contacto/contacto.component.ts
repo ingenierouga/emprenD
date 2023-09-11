@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, NgForm } from '@angular/forms';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ContactoService } from '../../contacto.service';
 
 @Component({
   selector: 'app-contacto',
@@ -12,9 +13,23 @@ export class ContactoComponent {
 
   onSubmit() {
     console.log(this.contactoForm);
+    if (this.contactoForm.valid) {
+      const contactoMandar = {
+        email: this.contactoForm.value['email'],
+        fecha: this.contactoForm.value['fecha'],
+        mensaje: this.contactoForm.value['mensaje'],
+        nombre: this.contactoForm.value['nombre'],
+        telefono: this.contactoForm.value['telefono'],
+      };
+
+      this.contactoServicio.guardarContacto(contactoMandar).subscribe();
+    }
   }
 
-  constructor(private fb: FormBuilder) {
+  constructor(
+    private fb: FormBuilder,
+    private contactoServicio: ContactoService
+  ) {
     this.contactoForm = this.fb.group({
       nombre: new FormControl('', Validators.required),
       email: new FormControl('', [Validators.required, Validators.email]),
@@ -22,7 +37,7 @@ export class ContactoComponent {
         Validators.required,
         Validators.pattern(/^\d{8,10}$/),
       ]),
-      fecha: new FormControl(''),
+      fecha: new FormControl(null, [Validators.required]),
       mensaje: new FormControl('', [
         Validators.required,
         Validators.maxLength(250),
