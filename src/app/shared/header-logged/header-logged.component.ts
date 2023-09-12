@@ -6,7 +6,7 @@ import { Subscription } from 'rxjs';
   selector: 'app-header-logged',
   templateUrl: './header-logged.component.html',
   styleUrls: ['./header-logged.component.scss'],
-  providers: [LoggedService],
+  providers: [],
 })
 export class HeaderLoggedComponent implements OnInit, OnDestroy {
   isAuthenticated = false;
@@ -16,13 +16,24 @@ export class HeaderLoggedComponent implements OnInit, OnDestroy {
 
   constructor(private loggedService: LoggedService) {}
 
+  onLogout() {
+    this.loggedService.logout();
+  }
+
   ngOnInit() {
-    this.usuario = this.loggedService.email;
+    //this.usuario = this.loggedService.email;
     this.userSub = this.loggedService.user.subscribe((user) => {
-      this.isAuthenticated = !!user;
-      //console.log('user:');
-      //console.log(user);
-      //console.log('email:' + user.email);
+      if (user.email) {
+        this.isAuthenticated = true;
+      } else {
+        this.isAuthenticated = false;
+      }
+
+      if (user.email) {
+        this.usuario = user.email;
+      } else {
+        this.usuario = 'anonimo';
+      }
     });
   }
 

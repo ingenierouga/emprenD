@@ -18,7 +18,10 @@
 
     <div class="current-user-holder p-2 ms-auto">
       Nombre de usuario:<span class="ms-2">{{ usuario }}</span>
-      <span *ngIf="isAuthenticated" class="logout-button m-2 ms-4 p-1"
+      <span
+        *ngIf="isAuthenticated"
+        class="logout-button m-2 ms-4 p-1"
+        (click)="onLogout()"
         >Logout</span
       >
     </div>

@@ -18,7 +18,7 @@ export interface AuthResponseData {
 export class LoggedService {
   //user = new BehaviorSubject<User>();
   user = new BehaviorSubject<User>({} as User);
-  email: string = '';
+  private tokenExpirationTimer: any;
 
   constructor(private http: HttpClient) {}
 
@@ -31,8 +31,6 @@ export class LoggedService {
       .pipe(
         catchError(this.handleError),
         tap((resData) => {
-          this.email = resData.email;
-          console.log(resData);
           this.handleAuthentication(
             resData.email,
             resData.localId,
@@ -52,8 +50,6 @@ export class LoggedService {
       .pipe(
         catchError(this.handleError),
         tap((resData) => {
-          this.email = resData.email;
-          console.log(resData);
           this.handleAuthentication(
             resData.email,
             resData.localId,
@@ -62,6 +58,60 @@ export class LoggedService {
           );
         })
       );
+  }
+
+  logout() {
+    this.user.next({} as User);
+    localStorage.removeItem('userData');
+    if (this.tokenExpirationTimer) {
+      clearTimeout(this.tokenExpirationTimer);
+    }
+    this.tokenExpirationTimer = null;
+  }
+
+  autoLoout(expirationDuration: number) {
+    this.tokenExpirationTimer = setTimeout(() => {
+      this.logout();
+    }, expirationDuration);
+  }
+
+  autoLogin() {
+    const holder = localStorage.getItem('userData');
+    let userData: {
+      email: string;
+      id: string;
+      _token: string;
+      _tokenExpirationDate: string;
+    } = {
+      email: '',
+      id: '',
+      _token: '',
+      _tokenExpirationDate: '',
+    };
+
+    if (!holder || holder === '') {
+      return;
+    } else {
+      userData = JSON.parse(holder);
+    }
+
+    const loadedUser = new User(
+      userData.email,
+      userData.id,
+      userData._token,
+      new Date(userData._tokenExpirationDate)
+    );
+
+    //since we have a getter on the User object, this should return null if the token is not valid
+    if (loadedUser.token) {
+      this.user.next(loadedUser);
+      const expirationDuration =
+        new Date(userData._tokenExpirationDate).getTime() -
+        new Date().getTime();
+      this.autoLoout(expirationDuration);
+    }
+
+    console.log(holder);
   }
 
   private handleAuthentication(
@@ -73,6 +123,8 @@ export class LoggedService {
     const expirationDate = new Date(new Date().getTime() + expiresIn * 1000);
     const user = new User(email, userId, token, expirationDate);
     this.user.next(user);
+    this.autoLoout(expiresIn * 1000);
+    localStorage.setItem('userData', JSON.stringify(user));
   }
 
   private handleError(errorRes: HttpErrorResponse) {

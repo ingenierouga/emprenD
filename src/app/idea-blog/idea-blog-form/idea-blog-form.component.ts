@@ -19,12 +19,10 @@ import { Subscription } from 'rxjs';
 export class IdeaBlogFormComponent implements OnInit, OnDestroy {
   ideaForm: FormGroup;
   usuario: string = '';
-  isAuthenticated = false;
+
   private userSub: Subscription | undefined;
 
   onSubmit() {
-    console.log(this.ideaForm);
-
     this.ideaShared.emit({
       content: this.ideaForm.value.idea,
       createdBy: this.usuario,
@@ -52,10 +50,13 @@ export class IdeaBlogFormComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.usuario = this.loggedService.email;
+    //this.usuario = this.loggedService.email;
     this.userSub = this.loggedService.user.subscribe((user) => {
-      this.isAuthenticated = !!user;
-      console.log(this.loggedService.email);
+      if (user.email) {
+        this.usuario = user.email;
+      } else {
+        this.usuario = 'anonimo';
+      }
     });
   }
 
