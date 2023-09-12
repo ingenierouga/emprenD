@@ -14,14 +14,12 @@ export class Idea {
     this.createdBy = usernameParam;
     this.content = contentParam;
 
-    if ((this.timeStamp = '')) {
-      const currentDate = new Date();
+    const currentDate = new Date();
 
-      const day = currentDate.getDate();
-      const month = currentDate.getMonth() + 1;
-      const year = currentDate.getFullYear();
+    const day = currentDate.getDate();
+    const month = currentDate.getMonth() + 1;
+    const year = currentDate.getFullYear();
 
-      this.timeStamp = `${day}/${month}/${year}`;
-    }
+    this.timeStamp = `${day}/${month}/${year}`;
   }
 }

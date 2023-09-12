@@ -30,8 +30,8 @@ export class IdeaBlogComponent implements OnInit {
   }
 
   onSharedIdea(ideaData: { content: string; createdBy: string }) {
-    //let ideaToSend = new Idea(ideaData.createdBy, ideaData.content);
-    this.ideasService.guardarIdea(ideaData).subscribe(
+    let ideaToSend = new Idea(ideaData.createdBy, ideaData.content);
+    this.ideasService.guardarIdea(ideaToSend).subscribe(
       (reponseData) => {
         console.log(reponseData);
         //una vez que se guardo la nueva idea se hace request del log de ideas para actualizar las ideas en el Blog-Log
