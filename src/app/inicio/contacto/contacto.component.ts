@@ -33,7 +33,8 @@ export class ContactoComponent {
         (error) => {
           this.modalService.openNotificationModal(
             'Error',
-            'Ocurrio un error al intentar guardar tu informacion: ' + error
+            'Ocurrio un error al intentar guardar tu informacion: ' +
+              error.message
           );
         }
       );

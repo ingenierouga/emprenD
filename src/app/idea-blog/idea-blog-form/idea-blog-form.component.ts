@@ -1,7 +1,14 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  OnInit,
+  Output,
+  OnDestroy,
+} from '@angular/core';
 import { FormControl, NgForm } from '@angular/forms';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LoggedService } from '../../logged.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-idea-blog-form',
@@ -9,13 +16,13 @@ import { LoggedService } from '../../logged.service';
   styleUrls: ['./idea-blog-form.component.scss'],
   providers: [],
 })
-export class IdeaBlogFormComponent implements OnInit {
+export class IdeaBlogFormComponent implements OnInit, OnDestroy {
   ideaForm: FormGroup;
   usuario: string = '';
 
-  onSubmit() {
-    console.log(this.ideaForm);
+  private userSub: Subscription | undefined;
 
+  onSubmit() {
     this.ideaShared.emit({
       content: this.ideaForm.value.idea,
       createdBy: this.usuario,
@@ -43,6 +50,17 @@ export class IdeaBlogFormComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.usuario = this.loggedService.userLogged;
+    //this.usuario = this.loggedService.email;
+    this.userSub = this.loggedService.user.subscribe((user) => {
+      if (user.email) {
+        this.usuario = user.email;
+      } else {
+        this.usuario = 'anonimo';
+      }
+    });
+  }
+
+  ngOnDestroy() {
+    this.userSub?.unsubscribe();
   }
 }

@@ -9,13 +9,25 @@
               class="logo"
               alt="Logo"
             />
-            <div class="poppinsD-font ms-2 brand-logo-label align-middle">
+            <div class="poppinsD-font ms-2 brand-logo-label align-middle my-2">
               emprenD
             </div>
           </div>
         </div>
 
-        <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+        <div *ngIf="isLoading">
+          <app-loading-spinner></app-loading-spinner>
+        </div>
+
+        <div class="alert alert-danger p-2 mt-2" *ngIf="error">
+          <p>{{ error }}</p>
+        </div>
+
+        <form
+          (ngSubmit)="onSubmit(loginForm)"
+          #loginForm="ngForm"
+          *ngIf="!isLoading"
+        >
           <label for="username" class="form-label login-label mt-2"
             >Usuario</label
           >
@@ -37,7 +49,7 @@
               class="form-text login-label login-help mt-2 p-1"
               *ngIf="email.invalid && email.dirty"
             >
-              El correo que escribiste no es valido
+              El nombre de usuario debe ser un correo
             </div>
           </div>
 
@@ -53,6 +65,7 @@
               ngModel
               name="password"
               required
+              minlength="6"
               password
               #password="ngModel"
             />
@@ -66,12 +79,23 @@
           </div>
           <div class="login-button mt-4 justify-content-end">
             <button
-              class="button py-3 px-5"
-              [class.enabled]="f.valid"
-              type="submit"
-              [disabled]="!f.valid"
+              class="button py-1 px-3 me-2 switch-button"
+              [class.enabled]="true"
+              (click)="onSwitchMode()"
+              type="button"
             >
-              Enviar <i class="bi bi-arrow-right"></i>
+              switch mode
+              <i class="bi bi-toggle-on mt-2 ms-2"></i>
+            </button>
+
+            <button
+              class="button py-3 px-5"
+              [class.enabled]="loginForm.valid"
+              type="submit"
+              [disabled]="!loginForm.valid"
+            >
+              {{ isLoginMode ? "Login" : "Registrarse" }}
+              <i class="bi bi-arrow-right"></i>
             </button>
           </div>
         </form>

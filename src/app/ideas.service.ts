@@ -30,7 +30,7 @@ export class IdeasService {
           const ideasArray: Idea[] = [];
           for (const key in responseData) {
             if (responseData.hasOwnProperty(key)) {
-              console.log(key);
+              //console.log(key);
               ideasArray.push(
                 new Idea(
                   responseData[key].createdBy,

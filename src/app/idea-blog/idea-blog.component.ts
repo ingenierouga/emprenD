@@ -33,7 +33,7 @@ export class IdeaBlogComponent implements OnInit {
     //let ideaToSend = new Idea(ideaData.createdBy, ideaData.content);
     this.ideasService.guardarIdea(ideaData).subscribe(
       (reponseData) => {
-        console.log(reponseData);
+        //console.log(reponseData);
         //una vez que se guardo la nueva idea se hace request del log de ideas para actualizar las ideas en el Blog-Log
         this.modalService.openNotificationModal(
           'Exito',
@@ -44,7 +44,7 @@ export class IdeaBlogComponent implements OnInit {
       (error) => {
         this.modalService.openNotificationModal(
           'Error',
-          'Ocurrio un error al intentar guardar tu idea: ' + error
+          'Ocurrio un error al intentar guardar tu idea: ' + error.message
         );
       }
     );
