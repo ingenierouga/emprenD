@@ -33,6 +33,7 @@ import { HeaderLoggedComponent } from './shared/header-logged/header-logged.comp
 import { HttpClientModule } from '@angular/common/http';
 import { LoggedService } from './logged.service';
 import { MatDialogModule } from '@angular/material/dialog';
+import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +58,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     InicioComponent,
     LoginComponent,
     HeaderLoggedComponent,
+    LoadingSpinnerComponent,
   ],
   imports: [
     BrowserModule,
