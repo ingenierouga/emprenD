@@ -69,7 +69,7 @@ export class LoggedService {
     this.tokenExpirationTimer = null;
   }
 
-  autoLoout(expirationDuration: number) {
+  autoLogout(expirationDuration: number) {
     this.tokenExpirationTimer = setTimeout(() => {
       this.logout();
     }, expirationDuration);
@@ -108,10 +108,10 @@ export class LoggedService {
       const expirationDuration =
         new Date(userData._tokenExpirationDate).getTime() -
         new Date().getTime();
-      this.autoLoout(expirationDuration);
+      this.autoLogout(expirationDuration);
     }
 
-    console.log(holder);
+    //console.log(holder);
   }
 
   private handleAuthentication(
@@ -123,7 +123,7 @@ export class LoggedService {
     const expirationDate = new Date(new Date().getTime() + expiresIn * 1000);
     const user = new User(email, userId, token, expirationDate);
     this.user.next(user);
-    this.autoLoout(expiresIn * 1000);
+    this.autoLogout(expiresIn * 1000);
     localStorage.setItem('userData', JSON.stringify(user));
   }
 

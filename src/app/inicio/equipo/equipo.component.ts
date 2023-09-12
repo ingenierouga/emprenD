@@ -13,19 +13,20 @@ export class EquipoComponent implements OnInit {
       '../../../assets/images/Erlend.jpg',
       'Ernesto Escucha',
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-      'redes'
+      'https://twitter.com/home'
     ),
     new Member(
       '../../../assets/images/Cristho2.jpg',
       'Homero Cristho',
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-      'redes'
+      '',
+      'facebook.com/'
     ),
     new Member(
       '../../../assets/images/banksy.jpg',
       'Guillo Bankno',
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-      'redes'
+      'https://twitter.com/home'
     ),
   ];
 
