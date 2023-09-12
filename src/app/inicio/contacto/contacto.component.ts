@@ -13,7 +13,7 @@ export class ContactoComponent {
   contactoForm: FormGroup;
 
   onSubmit() {
-    console.log(this.contactoForm);
+    //onsole.log(this.contactoForm);
     if (this.contactoForm.valid) {
       const contactoMandar = {
         email: this.contactoForm.value['email'],
@@ -38,6 +38,7 @@ export class ContactoComponent {
           );
         }
       );
+      this.contactoForm.reset();
     }
   }
 

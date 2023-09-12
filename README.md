@@ -6,6 +6,13 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`.
 
+## Deployed Version
+
+You can find the latest build of the main branch of this project here:
+https://main.d2t3phkh7w93zj.amplifyapp.com/
+
+Mounted on AWS -Amplify services
+
 ## Routing
 
 This Angular Demo Application consists of 3 main pages:
@@ -38,22 +45,35 @@ This page is using multiple Angular components along with bootstrap to simulate 
   mensaje - required and not longer than 250 characters.
   button - the button will not be enabled, the hover wont work and the color will fade when the form is not valid, once all the fields are valid the button will light up and you'll be able to click it
 
+  This information is currently being saved on a Firebase DB but there is no page to show this information.
+
 The second section here has some demo basic information and it implements a maps widget, the widget will dissapear on small screens since it wont on the design for small screens.
 
 - Footer: the footer has 3 sections, one for the EmprenD logo and name, a separator component, another section for sub-sections which right now have the icons for the allowed demo payment options and another for the contact demo info, and a third section below to show the social network links for the bussines.
 
 ## Inicio
 
-This page has a simple login form, the idea is to look for the user in DB and if it's found check the provided password matches, but right now it is not connected to a DB.
-After validating the user the username will be saved on a service to then tell the "Blog" page the current loged used so it can be used as the creator for a registered idea.
-redirection once logged in is also missing.
+This page has a simple login/sign up form, a button to switch between log in and sign in, a button to send the active request and an error section above the form to show any error messages.
+
+Validations:
+
+- username: will need to be in an email format and is required.
+- password: is is required and it needs to be at least 6 characters long.
+
+This validations are handled through declarations on the html form.
+
+Functionality:
+
+- Log In: a search will be done on the Firebase default login service for your account and if your account exists and your password is correct you will be logged in and re-routed to the /blog page.
+  If your information is not correct or your user was not found the corresponding error message should be displayed.
+- Sign Up: if you do not have a user registered you will need to Sign Up, the same rules apply for user and password, the only validation that changes is that if an account was already created with that email you wont be able to create a new one.
 
 ## Blog
 
 This is a simple form which saves an idea (validated - required, max 500 characters), once the idea is valid the current logged user and the current date will be added to the idea and then showen in the blog-log component below, if no user had logged in "Anonimo" will be used as "created by".
 The button will follow the behavior as the button on the "Contacto" form and wont be enabled unless the idea is valid.
 Also the header used here is different, this one does not have the navigation links and will check the service for the current logged used and show his username.
-Here Reactive Driven Validation was used.
+Here "Reactive Driven Validation" was used.
 
 ## Services
 
@@ -63,6 +83,17 @@ The project implements a couple of services for different uses.
 - Logged Service: Service used to manage the connection to DB to sign up or register users through the login page.
 - Ideas Service: Service that handles the connections to the APIs that connect to the DB to save the Ideas information.
 - Contacto Service: Service that handles the connections to the APIs that connect to the DB to save the contact information.
+- Logged Service: This is the authentication service, it uses an interface to define the data as indicated in the Firebase documentation (https://firebase.google.com/docs/reference/rest/auth#section-api-usage), it will saved in a BehaviorSubject Observable variable for the user so it can be accessed by any component provided with the service and it's up to date with any of the subscribers.
+
+Two extra layers were added to the login/signUp calls, one to mannage some of the most common errors that can occur, and another one to "HandleAuthentication" where the user data is taken and saved in LocalStorage.
+
+A "autoLogin" function was added to the service to check if there is a user saved in local storage and if one is found create the User as required by the interface and then make it the current user in the user BehaviorSubject Observable variable.
+
+The User interface has a getter for the Token that will return "null" whenever the token is no longer valid, helping the validation of the current saved user.
+
+A "autoLogOut" function was also added to check the time left on the token while it is still added and add a timer which will clear the current user once the time is out. This timer is also added when the user was just "signed in", if a timer was already set it will either update it or stop it as required.
+
+NOTE: the error message layer implemented on the Logged-Service will be a good implementation on the other services.
 
 ## Database
 

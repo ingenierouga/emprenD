@@ -27,15 +27,14 @@ export class IdeaBlogFormComponent implements OnInit, OnDestroy {
       content: this.ideaForm.value.idea,
       createdBy: this.usuario,
     });
-
-    this.ideaForm.value.idea = '';
+    this.ideaForm.reset();
+    //this.ideaForm.value.idea = '';
   }
 
   @Output() ideaShared = new EventEmitter<{
     content: string;
     createdBy: string;
   }>();
-  ideaContent = '';
 
   //createdBy vendria del objeto en la app que represente al usuario logeado
   createdBy = 'test user';
